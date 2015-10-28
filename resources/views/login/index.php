@@ -33,6 +33,7 @@
         <div class="page-container">
             <h1>Iniciar sección</h1>
             <form action="" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="text" name="username" class="username" placeholder="Username">
                 <input type="password" name="password" class="password" placeholder="Password">
                 <button type="submit">Conectarme</button>

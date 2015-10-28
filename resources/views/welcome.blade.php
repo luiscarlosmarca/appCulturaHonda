@@ -37,7 +37,7 @@
 			}
 			 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
             body {
-                background: #7f9b4e url(images/bg2.jpg) no-repeat center top;
+                background: #7f9b4e url(images/bg3.jpg) no-repeat center top;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 background-size: cover;
@@ -55,9 +55,9 @@
 			<div class="content">
 				<div class="title">
 					<a href="{{ url('/home') }}">
-						Casa de la Cultura</div>
+						<img src="images/logo.png"></div>
 					</a>
-				<h3>App Web</h3>
+				<h3>App Web- Honda Tolima</h3>
 			</div>
 		</div>
 	</body>

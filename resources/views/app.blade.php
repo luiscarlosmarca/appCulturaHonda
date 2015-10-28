@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>@yield('title','Yo Juego| Haciendo la diferencia')</title>
+	<title>@yield('title','Casa de la cultura | Honda Tolima')</title>
 	{!!Html::style('css/style.css')!!}
 	{!!Html::style('css/app.css')!!}
 
@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('/') }}">Casa de la Cultura </a>
+				<a class="navbar-brand" href="{{ url('/') }}"><img src="images/logo-mini.png"> </a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,11 +55,46 @@
 					<!-- ******Estudiante ******-->
 					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Estudiante <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-			                <li><a href="{{ route('admin.jugadores.create') }}">Crear Nuevo Estudiante </a></li>
-							<li><a href="{{ url('/admin/jugadores') }}">Ver Listado de Estudiantes</a></li>
+			                <li><a href="{{ route('admin.estudiantes.create') }}">Crear Nuevo Estudiante </a></li>
+							<li><a href="{{ url('/admin/estudiante') }}">Ver Listado de Estudiantes</a></li>
 			             </ul>
 
 					</li>
+
+
+
+					<!-- ******instructor ******-->
+					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Instructor <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+			                <li><a href="{{ route('admin.instructores.create') }}">Crear Nuevo Instructor </a></li>
+							<li><a href="{{ url('/admin/instructores') }}">Ver Listado de Instructores</a></li>
+			             </ul>
+
+					</li>
+
+
+
+					<!-- ******cursos ******-->
+					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Curso <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+			                <li><a href="{{ route('admin.cursos.create') }}">Crear Nuevo curso </a></li>
+							<li><a href="{{ url('/admin/cursos') }}">Ver Listado de Cursos</a></li>
+			             </ul>
+
+					</li>
+
+
+
+					<!-- ******matricula ******-->
+					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Matricular <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+			                <li><a href="{{ route('admin.matriculas.create') }}">Matricular estudiante </a></li>
+							<li><a href="{{ url('/admin/matriculas') }}">Ver Listado de Matriculas	</a></li>
+			             </ul>
+
+					</li>
+
+
 					
 				</ul>
 

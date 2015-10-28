@@ -54,8 +54,9 @@
             
             
             <header>
-            <center> <h1>Secretaria <strong>Cultura</strong>  y turismo</h1>
-                <h2>Honda - Tolima</h2>
+
+                              <center> <img src="images/logo.png" widht="500" height="300">
+                <h3><font color="white">Honda - Tolima</h3></font>
                 
 
          
@@ -64,8 +65,8 @@
             
             <section class="main">
                 <form method="POST" action="{{ url('/auth/login') }}" class="form-5 clearfix">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                     <p>
                         <input type="text" id="login" name="email" placeholder="Digite su correo">
                         <input type="password" name="password" id="password" placeholder="Digite la contraseña"> 

@@ -52,41 +52,46 @@
 <div class="container">
         
             
-            
-            <header>
-            
-              <center> <h1>Secretaria <strong>Cultura</strong>  y turismo</h1>
-                <h2>Honda - Tolima</h2>
                 
-                
+                            <header>
+                            
+                              <center> <img src="images/logo.png" widht="400" height="200">
+                                <h2>Honda - Tolima</h2>
+                                
+                                
 
-            </header>
-            
+                            </header>
+                            
             <section class="main">
-                <form class="form-5 clearfix">
-                    <p>
+               
+                 <form method="POST" action="{{ url('/auth/login') }}" class="form-5 clearfix">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                     
+                     <p>
                         <input type="text" id="login" name="login" placeholder="Username">
-                        <input type="password" name="password" id="password" placeholder="Password"> 
-                    </p>
-                    <button type="submit" name="submit">
-                        <i class="icon-arrow-right"></i>
-                        <span>Ingresar</span>
-                    </button>     
+                         <input type="password" name="password" id="password" placeholder="Password"> 
+                     </p>
+                                    
+                                <button type="submit" name="submit">
+                                        <i class="icon-arrow-right"></i>
+                                        <span>Ingresar</span>
+                                </button>     
                 </form>​​​​
-            </section>
+
+       </section>
 
 
 
 
-        <!-- Javascript -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-        <script type="text/javascript">
-        $(function(){
-            $('input, textarea').placeholder();
-        });
-        </script>
-    </body>
+                        <!-- Javascript -->
+                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+                        <script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
+                        <script type="text/javascript">
+                        $(function(){
+                            $('input, textarea').placeholder();
+                        });
+                        </script>
+                    </body>
 
-</html>
+    </html>
 

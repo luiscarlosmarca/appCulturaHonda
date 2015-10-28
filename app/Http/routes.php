@@ -24,15 +24,10 @@ Route::controllers([
 ]);
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'], 'namespace' =>'Admin'],function(){
 	Route::resource('users','UserController');
-	Route::resource('jugadores','JugadorController');
-	Route::resource('entrenadores','EntrenadorController');
-	Route::resource('clubs','ClubController');
-	Route::resource('registro_jugador_clubs','RegistroJugadorClubController');
-	Route::resource('equipos','EquipoController');
-	Route::resource('registro_jugador_equipos','RegistroJugadorEquipoController');
-
-	Route::resource('torneos','TorneosController');
-	Route::resource('escenarios_deportivos','CanchasController');
+	Route::resource('estudiantes','EstudianteController');
+	Route::resource('instructores','InstrutorController');
+	Route::resource('cursos','CursoController');
+	Route::resource('matriculas','MatriculaController');
 	
 });
 
