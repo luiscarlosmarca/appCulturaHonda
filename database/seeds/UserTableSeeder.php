@@ -11,106 +11,69 @@ class UserTableSeeder extends Seeder {
 		$faker->seed(40);
 		for($i=0; $i<20; $i ++)
 		{
-			$idjugadores=\DB::table('jugadores')->insertGetId(array(
+			$id_aprendiz=\DB::table('aprendices')->insertGetId(array(
 				
-				'tipo_doc'      	=> $faker->randomElement(['Cedula','Tarjeta de  identidad','Contraseña','Registro civil','Pasaporte']),
-				'num_doc'       	=> $faker->unique()->numberBetween($min = 100000000, $max = 900000000),
 				'nombre'        	=> $faker->firstName,
 				'apellido'      	=> $faker->lastName,
-				'FeNa'          	=> $faker->dateTimeBetween('-20 years', '-15 years')->format('Y-m-d'),
-				'direccion'    		=> $faker->streetAddress,
+				'foto'				=> "foto.jpg",
+				'FeNa'          	=> $faker->dateTimeBetween('-13 years', '-8 years')->format('Y-m-d'),
+				'tipo_doc'      	=> $faker->randomElement(['Cedula','Tarjeta de  identidad','Contraseña','Registro civil','Pasaporte']),
+				'num_doc'       	=> $faker->unique()->numberBetween($min = 100000000, $max = 900000000),
+				'nivelAcademico'    => $faker->randomElement(['Basica Primaria','Bachiller','Tecnico','Tecnologico','Profesional','PostGrado']),
 				'telefono'      	=> $faker->phoneNumber,
-				'nom_acudiente' 	=> $faker->name,
-				'tel_acudiente' 	=> $faker->phoneNumber,
-				'email'  			=> $faker->unique()->email,
+
 				'sisben'			=> true,
-				'estracto'			=> 2,
-				'nivelAcademico'    => $faker->randomElement(['Basica Primaria','Bachiller','Tecnico','Tecnologico','Profesional','PostGrado']),
-				'activo'			=> true,
-				'observaciones'		=> $faker->paragraph(rand(2,5))
+				'estracto'			=> 2
+							
 				));
 
-				$identrenadores=\DB::table('entrenadores')->insertGetId(array(
+				$id_instructor=\DB::table('instructores')->insertGetId(array(
 				
-				'tipo_doc'      	=> $faker->randomElement(['Cedula','Tarjeta de  identidad','Contraseña','Registro civil','Pasaporte']),
-				'num_doc'       	=> $faker->unique()->numberBetween($min = 100000000, $max = 900000000),
+				
 				'nombre'        	=> $faker->firstName,
 				'apellido'      	=> $faker->lastName,
-				'FeNa'          	=> $faker->dateTimeBetween('-40 years', '-25 years')->format('Y-m-d'),
-				'direccion'    		=> $faker->streetAddress,
-				'telefono'      	=> $faker->phoneNumber,
-				'email'  			=> $faker->unique()->email,
+				'num_doc'       	=> $faker->unique()->numberBetween($min = 100000000, $max = 900000000),
 				'nivelAcademico'    => $faker->randomElement(['Basica Primaria','Bachiller','Tecnico','Tecnologico','Profesional','PostGrado']),
-				'activo'			=> true,
-				'observaciones'		=> $faker->paragraph(rand(2,5))
-				));
-
-				$idclubes=\DB::table('clubes')->insertGetId(array(
-				
-				
-				'nit'       	    => $faker->unique()->numberBetween($min = 100000000, $max = 900000000),
-				'nombre'        	=> $faker->company,
-				'direccion'    		=> $faker->streetAddress,
-				'entrenador_id'     => $identrenadores,
+				'profesion'		    => $faker->title,
 				'telefono'      	=> $faker->phoneNumber,
-				'disciplina'   		=> $faker->randomElement(['Futbol','Balon cesto','Patinaje','Boleybol','Natacion','Atletismo']),
-				'categoria'         => $faker->randomElement(['Mixta','Infantil','Libre','Femenino','Masculino','Juvenil','Profesional']),
-				'activo'			=> true,
-				'observaciones'		=> $faker->paragraph(rand(2,5))
-				));
-
-                DB::table('registro_jugador_club')->insert(array(
+				'direccion'    		=> $faker->streetAddress,
 				
-				'jugador_id' => $idjugadores,
-				'club_id'    => $idclubes,
-				'activo'	 => true,
+				'email'  			=> $faker->unique()->email
+				
 				
 				));
 
-              $idequipos=\DB::table('equipos')->insertGetId(array(
+				$idclubes=\DB::table('cursos')->insertGetId(array(
+				
 				
 				
 				'nombre'        	=> $faker->company,
-				'disciplina'   		=> $faker->randomElement(['Futbol','Balon cesto','Patinaje','Boleybol','Natacion','Atletismo']),
-				'categoria'         => $faker->randomElement(['Mixta','Infantil','Libre','Femenino','Masculino','Juvenil','Profesional']),
-				'jugador_id' 		=> $idjugadores,//el capitan del equipo
+				'tema'   		    => $faker->randomElement(['Musica','Danza','Teatro','Deporte']),
+				
+				'descripcion'		=> $faker->paragraph(rand(2,5))
+				'id_instructor'     => $id_instructor,
+				
+				'horario'           => $faker->randomElement(['Diurno','Nocturno','Fines de semana']),
 				'activo'			=> true,
 				'observaciones'		=> $faker->paragraph(rand(2,5))
 				));
-
-
-
-                DB::table('registro_jugador_equipos')->insert(array(
+       }
+                
+$faker = Faker::create();
+		$faker->seed(10);
+		for($i=0; $i<10; $i ++)
+		{
+                DB::table('matriculas')->insert(array(
 				
-				'jugador_id'   => $idjugadores,
-				'equipo_id'    => $idequipos,
+				'id_aprendiz' => $idjugadores,
+				'id_instructor'    => $idclubes,
 				'activo'	 => true,
 				
 				));
+        }
+             
 
-
-				$idtorneos=\DB::table('torneos')->insertGetId(array(
-				
-				
-				'nombre'        	=> $faker->userName,
-				'disciplina'   		=> $faker->randomElement(['Futbol','Balon cesto','Patinaje','Boleybol','Natacion','Atletismo']),
-				'categoria'         => $faker->randomElement(['Mixta','Infantil','Libre','Femenino','Masculino','Juvenil','Profesional']),
-				'Fecha_inicio'      => $faker->dateTimeBetween('-2 years', '-1 years')->format('Y-m-d'),
-				'activo'			=> true,
-				'observaciones'		=> $faker->paragraph(rand(2,5))
-				));
-
-
-                $idcanchas=\DB::table('canchas')->insertGetId(array(
-				
-				
-				'nombre'        	=> $faker->company,
-				'barrio'        	=> $faker->state,
-				'activo'			=> true,
-				'observaciones'		=> $faker->paragraph(rand(2,5))
-				));
-
-		}
+		
 	}
 
 }

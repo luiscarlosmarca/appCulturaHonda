@@ -1,6 +1,6 @@
-<?php namespace App\Services;
+<?php namespace cultura\Services;
 
-use App\User;
+use cultura\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

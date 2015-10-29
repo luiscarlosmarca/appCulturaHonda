@@ -146,11 +146,11 @@ return [
 		 * Application Service Providers...
 		 */
 
-		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
-		'App\Providers\ConfigServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
+		'cultura\Providers\AppServiceProvider',
+		'cultura\Providers\BusServiceProvider',
+		'cultura\Providers\ConfigServiceProvider',
+		'cultura\Providers\EventServiceProvider',
+		'cultura\Providers\RouteServiceProvider',
 
 	],
 

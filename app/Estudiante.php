@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace cultura;
 use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -108,12 +108,12 @@ class Estudiante extends Model implements AuthenticatableContract, CanResetPassw
 
 	public function registroClubes()
 	{
-		return $this->hasMany('App\Registro_jugador_club');
+		return $this->hasMany('cultura\Registro_jugador_club');
 	}
 
 	public function registroEquipos()
 	{
-		return $this->hasMany('App\Registro_jugador_equipo');
+		return $this->hasMany('cultura\Registro_jugador_equipo');
 	}
 
 	public function getAgeAttribute()

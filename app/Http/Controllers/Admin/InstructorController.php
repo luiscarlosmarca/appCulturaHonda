@@ -2,16 +2,16 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Entrenador;
-use App\Http\Requests\EditEntrenadorRequest;
-use App\Http\Requests\CreateEntrenadorRequest;
+use App\Instructor;
+use App\Http\Requests\EditInstructorRequest;
+use App\Http\Requests\CreateInstructorRequest;
 use Illuminate\Http\Request;
 
 use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-class EntrenadorController extends Controller {
+class InstructorController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -20,9 +20,9 @@ class EntrenadorController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-	//$entrenadores= Entrenador::paginate();
-	$entrenadores= Entrenador::filter($request->get('nombre'),$request->get('nivelacademico'),$request->get('num_doc'));
-		return view ('admin.entrenadores.index', compact('entrenadores'));
+	//$instructores= Instructor::paginate();
+	$instructores= Instructor::filter($request->get('nombre'),$request->get('nivelacademico'),$request->get('num_doc'));
+		return view ('admin.instructores.index', compact('instructores'));
 	
 	}
 
@@ -33,7 +33,7 @@ class EntrenadorController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.entrenadores.create');
+		return view('admin.instructores.create');
 	}
 
 	/**
@@ -41,17 +41,17 @@ class EntrenadorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateEntrenadorRequest $request)
+	public function store(CreateInstructorRequest $request)
 	{
 		
 		
-		$entrenador = Entrenador::create($request->all());
+		$entrenador = Instructor::create($request->all());
 
 		Session::flash('message',$entrenador->full_name.' Fue creado'.' '.'#id asignado:'.' '.$entrenador
 			->id);
 		
 
-		return redirect()->route('admin.entrenadores.index');
+		return redirect()->route('admin.instructores.index');
 
 
 
@@ -78,9 +78,9 @@ class EntrenadorController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$entrenador=Entrenador::findOrfail($id);
+		$entrenador=Instructor::findOrfail($id);
 
-		return view('admin.entrenadores.edit',compact('entrenador'));		
+		return view('admin.instructores.edit',compact('entrenador'));		
 	}
 
 	/**
@@ -89,14 +89,14 @@ class EntrenadorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(EditEntrenadorRequest $request, $id)
+	public function update(EditInstructorRequest $request, $id)
 	{
-	  $entrenador=Entrenador::findOrFail($id);
+	  $entrenador=Instructor::findOrFail($id);
 
 		$entrenador->fill($request->all());
 		$entrenador->save();
 	Session::flash('message',$entrenador->full_name.' Fue actualizado');
-		return redirect()->route('admin.entrenadores.index');
+		return redirect()->route('admin.instructores.index');
 	}
 
 	/**
@@ -107,12 +107,12 @@ class EntrenadorController extends Controller {
 	 */
 	public function destroy($id)
 	{
-	$entrenador = Entrenador::findOrFail($id);
+	$entrenador = Instructor::findOrFail($id);
 
 		$entrenador->delete();
 
 		Session::flash('message',$entrenador->full_name.' Fue eliminado');
-		return redirect()->route('admin.entrenadores.index');
+		return redirect()->route('admin.instructores.index');
 	}
 
 }

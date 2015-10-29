@@ -1,43 +1,57 @@
 <table class="table table-hover" >
  							<tr>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-#id</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Nombre equipo</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Disciplina</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Categoria</th>
+ 								<th>
+ 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
 
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Capitan del Equipo</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Observaciones</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Acciones</th>
+ 									#id</th>
+ 								<th>
+  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+									
+ 									#Nit</th>
+ 								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Nombre club</th>
+ 								
+ 								
+ 								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Direccion</th>
+								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Disciplina</th>	
+								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Categoria</th>
+ 								
+ 																
+ 								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Entrenador </th>
+ 								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Observaciones </th>
+								<th> 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+Acciones </th>
+ 						
  							</tr>
- 						@foreach ($equipos as $equipo)
+ 								@foreach ($clubs as $club)
  							<tr>
- 								<td>{{$equipo->id}}</td>
- 								<td>{{$equipo->nombre}}</td>
- 								<td>{{$equipo->disciplina}}</td>
- 								<td>{{$equipo->categoria}}</td>
+ 								<td>{{$club->id}}</td>
+ 								<td>{{$club->nit}}</td>
+ 								<td>{{$club->nombre}}</td>
+ 								
+ 								<td>{{$club->direccion}}</td>
+ 								<td>{{$club->disciplina}}</td>
+ 								<td>{{$club->categoria}}</td>	
  								<td>
 
- 									@if(! empty($equipo->jugador->nombre))
- 									{{$equipo->jugador->nombre}}
- 									@else <font color="red"> El capitan fue borrado
+								@if(! empty($club->entrenador->full_name))
+ 									{{$club->entrenador->full_name}}
+ 									@else <font color="red"> El entrenador fue eliminado
  									@endif	
 
- 									</td>
-
- 								
- 								<td>{{$equipo->observaciones}}</td>
- 						<td>
- 								<a href="{{route('admin.equipos.edit',$equipo)}}">Editar </a></td>
- 								
+ 								</td>
+ 								<td>{{$club->observaciones}}</td>
+ 								<td>
+ 									<!-- Pasamos el id que lo recibe el metodo edit -->
+ 									<a href="{{route('admin.clubs.edit',$club)}}">Editar </a>
+ 									
+ 								</td>
  							</tr>
  								@endforeach
  						</table>
- 						{!!$equipos->appends(Request::only(['nombre','disciplina','categoria']))->render()!!}
- 						 				
+ 				{!!$clubs->appends(Request::only(['nombre','disciplina','nit','categoria']))->render()!!}

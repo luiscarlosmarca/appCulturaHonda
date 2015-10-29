@@ -1,25 +1,31 @@
-@extends('app')
+	@extends('app')
 @section('title')
-Creando nuevo Equipo | Yo Juego
+Matriculas | Casa de la Cultura
 @stop
 @section('content')
 
+    
 
-<!--   Imprime el error de  validacion -->
-				@include('admin.jugadores.partials.error')</div>
+ <div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="panel panel-primary">
+						<div class="panel-heading"><h1>Matricular aprendiz	</h1></div>
+						<div class="panel-body">
+		<!--   Imprime el error de  validacion -->
+						@include('admin.aprendices.partials.error')
 
-				<!--   Formulario para crear el jugador -->
+			<!--   Formulario para crear el jugador -->
 					
-			<h1>Crear un nuevo equipo</h1>
-				@include('admin.equipos.partials.fields')
-				 
+						
+						@include('admin.matriculas.partials.fields')
+		<button type="button" class="btn btn-info btn-lg btn-block">Matricular</button>
+						   
+
+			{!!Form::close() !!} 	
+			</div>	
 
 
-						<input type="submit" value="Crear equipo" class="register-button">
-
-	{!!Form::close() !!} 	
-	</div>	
-	<center><img src="http://localhost:8000/img/clubes.png"></center>
-
-   
+		
+		    
 @endsection

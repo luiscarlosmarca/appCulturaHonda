@@ -1,6 +1,6 @@
-<?php namespace App\Http\Requests;
+<?php namespace cultura\Http\Requests;
 
-use App\Http\Requests\Request;
+use cultura\Http\Requests\Request;
 
 class EditCanchaRequest extends Request {
 

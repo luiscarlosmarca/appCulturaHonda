@@ -1,26 +1,32 @@
 	@extends('app')
 @section('title')
-Creando nuevo Entrenador | Yo Juego
+Creando nuevo Instructor | Casa de la cultura - HONDA TOLIMA
 @stop
 @section('content')
 
 
      
 <!--   Imprime el error de  validacion -->
-				@include('admin.jugadores.partials.error')
-				        <h1>Crear un nuevo entrenador</h1>
+	
+      <div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-success	">
+				<div class="panel-heading"><h1>Crear un nuevo instructor</h1></div>
+				<div class="panel-body">
+<!--   Imprime el error de  validacion -->
+@include('admin.aprendices.partials.error')
 
-				<!--   Formulario para crear el jugador -->
-				
-				@include('admin.entrenadores.partials.fields')
+	<!--   Formulario para crear el jugador -->
 			
-			 <input type="submit" value="Crear entrenador" class="register-button">
+				
+				@include('admin.instructores.partials.fields')
+<button type="button" class="btn btn-success btn-lg btn-block">Crear Instructor</button>
+				   
 
 	{!!Form::close() !!} 	
 	</div>	
-	<center><img src="http://localhost:8000/img/fondo.png"></center>
-			
-					
+
 
 		
 		    

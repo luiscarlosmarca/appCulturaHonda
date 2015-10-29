@@ -1,12 +1,12 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace cultura\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use cultura\Http\Requests;
+use cultura\Http\Controllers\Controller;
 
 
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\EditUserRequest;
-use App\User;
+use cultura\Http\Requests\CreateUserRequest;
+use cultura\Http\Requests\EditUserRequest;
+use cultura\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;

@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace cultura;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -39,7 +39,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 	public function perfil()
 	{
-		return $this->hasOne('App\perfil_persona');
+		return $this->hasOne('cultura\perfil_persona');
 	}
 
 	public function setPasswordAttribute($value)

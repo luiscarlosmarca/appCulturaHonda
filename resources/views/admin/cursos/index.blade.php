@@ -4,9 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-18">
-			<div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Listado de Clubs </h3>
+				<div class="panel panel-primary">
+			<div class="panel-heading">
+        <h3 class="panel-title">Listados de equipos </h3>
       </div>
 
 	@if (Session::has('message'))
@@ -14,21 +14,24 @@
 					<p class="alert alert-info"> {{Session::get('message') }}</p>
 
 					@endif
-
 				<div class="panel-body">
-				@include('admin.clubs.partials.search')
-				@include('admin.clubs.partials.table')
-				
+					@include('admin.equipos.partials.search')
+				 @include('admin.equipos.partials.table') 
 				</div>
 			</div>
 		</div>
-
 		
-	</div>
 
+			<p>
+ 							
  							<font color="white">
 		Tenemos 
- 						{{$clubs->total()}}
- 					Clubs
+ 			
+ 						{{$equipos->total()}}
+ 						Equipos
+ 						
+ 						</p>
+	</div>
+	 
 </div>
 @endsection

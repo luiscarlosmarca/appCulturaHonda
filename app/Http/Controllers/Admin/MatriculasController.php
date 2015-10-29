@@ -2,22 +2,25 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Registro_jugador_equipo;
-use App\Http\Requests\RegistrarJugadorEquipoRequest;
-use Illuminate\Http\Request;
+use App\Matriculas;
+use App\Http\Requests\MatriculasbRequest;
 use Illuminate\Support\Facades\Session;
-class RegistroJugadorEquipoController extends Controller {
+use Illuminate\Http\Request;
+
+class MatriculasController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$registroJugadorEquipos=Registro_jugador_equipo::paginate();
+			//$matriculas=Matriculas::filter();
 
-	return view ('admin.equipos.registroJugadorEquipo.index', compact('registroJugadorEquipos'));
+	$matriculas=Matriculas::orderby('club_id','ASC')->paginate();
+
+	return view ('admin.matriculas.index', compact('matriculas'));
 	}
 
 	/**
@@ -27,7 +30,7 @@ class RegistroJugadorEquipoController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.equipos.registroJugadorEquipo.create');
+		return view ('admin.matriculas.create');
 	}
 
 	/**
@@ -35,12 +38,11 @@ class RegistroJugadorEquipoController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(RegistrarJugadorEquipoRequest $request)
+	public function store(MatriculasbRequest $request)
 	{
-		$registroJugadorEquipos =Registro_jugador_equipo::create($request->all());
-		Session::flash('message',$registroJugadorEquipos->jugador->full_name.' Fue registrado al equipo'.' ' .$registroJugadorEquipos->equipo->nombre);
-
-		return redirect()->route('admin.registro_jugador_equipos.index');
+		$matriculas =Matriculas::create($request->all());
+		Session::flash('message',$matriculas->jugador->full_name.' Fue registrado al club'. ' '.$matriculas->club->nombre);
+		return redirect()->route('admin.registro_jugador_matriculas.index');
 	}
 
 	/**

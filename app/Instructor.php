@@ -15,7 +15,7 @@ class Instructor extends Model implements AuthenticatableContract, CanResetPassw
 	 *
 	 * @var string
 	 */
-	protected $table = 'entrenadores';
+	protected $table = 'instructores';
 
 	/**
 	 * The attributes that are mass assignable.
@@ -84,7 +84,7 @@ class Instructor extends Model implements AuthenticatableContract, CanResetPassw
 
 	public static function filter($nombre,$nivelAcademico,$num_doc)
 		{
-			return Entrenador::nombre($nombre)
+			return Instructor::nombre($nombre)
 				
 				->nivelacademico($nivelAcademico)
 				->num_doc($num_doc)

@@ -1,5 +1,5 @@
-<?php namespace App\Http\Controllers;
-use App\Persona;
+<?php namespace cultura\Http\Controllers;
+use cultura\Persona;
 /**
 * 
 */ 

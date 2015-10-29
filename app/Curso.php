@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Session;
 class Curso extends Model {
 
-	protected $table="clubes";
+	protected $table="cursos";
 	protected $fillable = ['nit','nombre','direccion','entrenador_id','telefono','disciplina','categoria','observaciones' ];
 
 
@@ -47,7 +47,7 @@ public function scopeEntrenador_id($query, $entrenador_id)
 				if (trim($entrenador_id) != "")
 				{	
 				//$query->where(this->entrenador->nombre,$entrenador_id);	
-				//$query->join('clubes','entrenador_id', '=', 'entrenadores','id')
+				//$query->join('cursos','entrenador_id', '=', 'entrenadores','id')
                  //->where('entrenadores','nombre',$entrenador_id);
 					//$query->where(\DB::raw("CONCAT(entrenador_id)"),"LIKE","%$entrenador_id%");
 					//Session::flash('message','Estracto:'.$estracto.' : ' .' Resultado de la busqueda');	
@@ -84,7 +84,7 @@ public function scopeCategoria($query, $categoria)
 
 	public static function filter($nombre,$disciplina,$nit,$categoria)
 		{
-			return Club::nombre($nombre)
+			return Curso::nombre($nombre)
 				->disciplina($disciplina)
 				->nit($nit)
 				->categoria($categoria)

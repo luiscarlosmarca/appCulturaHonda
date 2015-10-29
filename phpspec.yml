@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: cultura
+        psr4_prefix: cultura
         src_path: app

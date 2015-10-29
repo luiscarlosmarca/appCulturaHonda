@@ -1,10 +1,10 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace cultura\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Cancha;
-use App\Http\Requests\CreateCanchaRequest;
-use App\Http\Requests\EditCanchaRequest;
+use cultura\Http\Requests;
+use cultura\Http\Controllers\Controller;
+use cultura\Cancha;
+use cultura\Http\Requests\CreateCanchaRequest;
+use cultura\Http\Requests\EditCanchaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 class CanchasController extends Controller {

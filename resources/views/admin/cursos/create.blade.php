@@ -1,28 +1,28 @@
-	@extends('app')
+@extends('app')
 @section('title')
-Creando nuevo Club | Yo Juego
+Creando nuevo Curso | Casa de la cultura HONDA - TOLIMA
 @stop
 @section('content')
 
 
-
-
-        
+   <div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-success	">
+				<div class="panel-heading"><h1>Crear un nuevo curso</h1></div>
+				<div class="panel-body">
 <!--   Imprime el error de  validacion -->
-				@include('admin.jugadores.partials.error')
+@include('admin.aprendices.partials.error')
 
-				<!--   Formulario para crear el jugador -->
-					<h1>Crear un nuevo Club</h1>
-
-				
-				@include('admin.clubs.partials.fields')
+	<!--   Formulario para crear el jugador -->
 			
-			<input type="submit" value="Crear club" class="register-button">
+				
+				@include('admin.cursos.partials.fields')
+<button type="button" class="btn btn-success btn-lg btn-block">Crear Curso</button>
+				   
 
 	{!!Form::close() !!} 	
 	</div>	
-	<center><img src="http://localhost:8000/img/clubes.png"></center>
 
-		
-		    
+   
 @endsection

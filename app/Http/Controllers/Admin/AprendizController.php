@@ -4,9 +4,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\EditJugadorRequest;
-use App\Http\Requests\CreateJugadorRequest;
-use App\Jugador;
+use App\Http\Requests\EditAprendizRequest;
+use App\Http\Requests\CreateAprendizRequest;
+use App\Aprendiz;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 
-class JugadorController extends Controller {
+class AprendizController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -24,7 +24,7 @@ class JugadorController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-	$jugadores= Jugador::filter($request->get('nombre'),$request->get('estracto'),$request->get('nivelacademico'),$request->get('num_doc'));
+	$jugadores= Aprendiz::filter($request->get('nombre'),$request->get('estracto'),$request->get('nivelacademico'),$request->get('num_doc'));
 		
 		return view ('admin.jugadores.index', compact('jugadores'));
 			
@@ -37,7 +37,7 @@ class JugadorController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.jugadores.create');
+		return view('admin.aprendices.create');
 	}
 
 	/**
@@ -45,9 +45,9 @@ class JugadorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateJugadorRequest $request)
+	public function store(CreateAprendizRequest $request)
 	{
-		$jugador = Jugador::create($request->all());
+		$jugador = Aprendiz::create($request->all());
 		Session::flash('message',$jugador->full_name.' Fue Creado'.' '.'#id asignado:'.' '.$jugador->id);
 		return redirect()->route('admin.jugadores.index');
 	}
@@ -82,7 +82,7 @@ class JugadorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(EditJugadorRequest $request, $id)
+	public function update(EditAprendizRequest $request, $id)
 	{
 		$jugador=jugador::findOrFail($id);
 
@@ -100,7 +100,7 @@ class JugadorController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$jugador = Jugador::findOrFail($id);
+		$jugador = Aprendiz::findOrFail($id);
 
 		$jugador->delete();
 
