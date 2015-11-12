@@ -10,24 +10,24 @@ class CreateMatriculasTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
+		public function up()
 	{
 		Schema::create('matriculas', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_aprendiz')->unsigned();
-			$table->integer('id_curso')->unsigned();
+			$table->integer('aprendiz_id')->unsigned();
+			$table->integer('curso_id')->unsigned();
 			$table->boolean('activo',true);
 			$table->timestamps();
 
-			$table->foreign('id_aprendiz')
+			$table->foreign('aprendiz_id')
 				  ->references('id')
 				  ->on('aprendices')
 				  ->onUpdate('CASCADE')
 				  ->onDelete('NO ACTION');
 
 
-		    $table->foreign('id_curso')
+		    $table->foreign('curso_id')
 				  ->references('id')
 				  ->on('cursos')
 				  ->onUpdate('CASCADE')

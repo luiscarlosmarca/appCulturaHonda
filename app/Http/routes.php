@@ -24,9 +24,10 @@ Route::controllers([
 ]);
 Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'], 'namespace' =>'Admin'],function(){
 	Route::resource('users','UserController');
-	Route::resource('estudiantes','EstudianteController');
-	Route::resource('instructores','InstrutorController');
+	Route::resource('aprendices','AprendizController');
+	Route::resource('instructores','InstructorController');
 	Route::resource('cursos','CursoController');
+	Route::resource('detalles-cursos','CursoController@detail');
 	Route::resource('matriculas','MatriculaController');
 	
 });

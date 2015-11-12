@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace cultura;
 use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +23,7 @@ class Aprendiz extends Model implements AuthenticatableContract, CanResetPasswor
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['estracto_doc','num_doc','nombre','apellido','FeNa','direccion','telefono','nom_acudiente','tel_acudiente','email','sisben','estracto','nivelAcademico','observaciones' ];
+	protected $fillable = ['estracto_doc','num_doc','nombre','apellido','FeNa','telefono','sisben','estracto','nivelAcademico','foto'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -32,6 +32,11 @@ class Aprendiz extends Model implements AuthenticatableContract, CanResetPasswor
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+
+	public function matriculado()
+		{
+			return $this->belongsToMany('cultura\cursos','matriculas');
+		}
 
 
 	public function getfullnameAttribute()
@@ -101,7 +106,7 @@ class Aprendiz extends Model implements AuthenticatableContract, CanResetPasswor
 				->nivelacademico($nivelAcademico)
 				->num_doc($num_doc)
 				->orderBy('nombre','ASC')
-				->paginate();
+				->paginate(10);
 		}
 
 

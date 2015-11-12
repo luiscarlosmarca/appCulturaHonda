@@ -19,7 +19,7 @@ class CanchasController extends Controller {
 		
 		$canchas= Cancha::filter($request->get('nombre'),$request->get('barrio'));
 
-	return view ('admin.canchas.index', compact('canchas'));
+		return view ('admin.canchas.index', compact('canchas'));
 	}
 
 	/**

@@ -22,7 +22,7 @@
 	<style> 
             @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Handlee);
             body {
-                background: url(images/bg2.jpg) no-repeat center top;
+                background: url(/images/bg2.jpg) no-repeat center top;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 background-size: cover;
@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('/') }}"><img src="images/logo-mini.png"> </a>
+				<a class="navbar-brand" href="{{ url('/') }}"><img src="/images/logo-mini.png"> </a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -52,11 +52,11 @@
 					<li><a href="{{ url('/web/index.php') }}">Ir a la web</a></li>
 					
 
-					<!-- ******Estudiante ******-->
-					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Estudiante <span class="caret"></span></a>
+					<!-- ******Aprendiz ******-->
+					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Aprendiz <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-			                <li><a href="{{ route('admin.estudiantes.create') }}">Crear Nuevo Estudiante </a></li>
-							<li><a href="{{ url('/admin/estudiante') }}">Ver Listado de Estudiantes</a></li>
+			                <li><a href="{{ route('admin.aprendices.create') }}">Crear Nuevo Aprendiz </a></li>
+							<li><a href="{{ url('/admin/aprendices') }}">Ver Listado de Aprendices</a></li>
 			             </ul>
 
 					</li>
@@ -86,13 +86,7 @@
 
 
 					<!-- ******matricula ******-->
-					<li class="dropdown"><a aria-expanded="true" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Matricular <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-			                <li><a href="{{ route('admin.matriculas.create') }}">Matricular estudiante </a></li>
-							<li><a href="{{ url('/admin/matriculas') }}">Ver Listado de Matriculas	</a></li>
-			             </ul>
-
-					</li>
+					
 
 
 					

@@ -1,16 +1,11 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace cultura\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Curso;
-use App\Http\Requests\CreateCursoRequest;
-use App\Http\Requests\EditCursoRequest;
+use cultura\Http\Requests;
+use cultura\Http\Controllers\Controller;
+use cultura\Curso;
+use cultura\Matricula;
 use Illuminate\Http\Request;
 
-use Illuminate\Routing\Redirector;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 class CursoController extends Controller {
 
 	/**
@@ -22,9 +17,9 @@ class CursoController extends Controller {
 	{
 		 	//dd($request->get('categoria'));	
 		 //$cursos= Curso::disciplina($request->get('disciplina'))->nombre($request->get('nombre'))->nit($request->get('nit'))->categoria($request->get('categoria'))->paginate();
-	$cursos= Curso::filter($request->get('nombre'),$request->get('disciplina'),$request->get('nit'),$request->get('categoria'));
+		$cursos= Curso::filter($request->get('nombre'),$request->get('tema'),$request->get('horario'));
 
-	return view ('admin.cursos.index', compact('cursos'));
+		return view ('admin.cursos.index', compact('cursos'));
 	}
 
 	/**
@@ -42,12 +37,9 @@ class CursoController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateCursoRequest $request)
+	public function store()
 	{
-		$club = Curso::create($request->all());
-		Session::flash('message',$club->nombre.' Fue creado'.' '.'#id asignado:'.' '.$club->id);
-		return redirect()->route('admin.cursos.index');
-	
+		//
 	}
 
 	/**
@@ -58,7 +50,9 @@ class CursoController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$cursos= Curso::findOrFail($id);
+		
+		return view('admin.cursos.matriculados', compact('cursos'));
 	}
 
 	/**
@@ -69,9 +63,7 @@ class CursoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$club=Curso::findOrfail($id);
-
-		return view('admin.cursos.edit',compact('club'));		
+		//
 	}
 
 	/**
@@ -80,31 +72,20 @@ class CursoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(EditCursoRequest $request, $id)
+	public function update($id)
 	{
-
-	  $club=Curso::findOrFail($id);
-
-		$club->fill($request->all());
-		$club->save();
-		Session::flash('message',$club->nombre.' Fue Actualizado');
-		return redirect()->route('admin.cursos.index');
-		
+		//
 	}
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function detail($id)
 	{
-		$club = Curso::findOrFail($id);
-
-		$club->delete();
-
-		Session::flash('message',$club->nombre.' Fue eliminado');
-		return redirect()->route('admin.cursos.index');
+		//
 	}
 
 }

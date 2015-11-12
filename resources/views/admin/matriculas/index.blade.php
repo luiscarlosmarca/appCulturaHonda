@@ -5,30 +5,36 @@
 	<div class="row">
 		<div class="col-md-18">
 			<div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Listado de Clubs </h3>
-      </div>
+			      
+			      <div class="panel-heading">
+			        <h3 class="panel-title">Listado de {{$matriculas->total()}} matriculas </h3>
+			      </div>
 
-	@if (Session::has('message'))
+						@if (Session::has('message'))
 
-					<p class="alert alert-info"> {{Session::get('message') }}</p>
+						<p class="alert alert-info"> {{Session::get('message') }}
 
-					@endif
+						</p>
 
-				<div class="panel-body">
-				@include('admin.clubs.partials.search')
-				@include('admin.clubs.partials.table')
-				
+						@endif
+		
+				 <div class="panel-body">
+						
+						@foreach($matriculas  as $matricula)
+
+							@include('admin.matriculas.partials.item',compact('matricula'))
+
+						@endforeach
+				 	
+ 						{{!!$matriculas->render()!!}}
+ 					
+
 				</div>
+
 			</div>
 		</div>
 
 		
 	</div>
-
- 							<font color="white">
-		Tenemos 
- 						{{$clubs->total()}}
- 					Clubs
 </div>
 @endsection

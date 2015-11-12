@@ -1,13 +1,11 @@
 <table class="table table-hover" widht=80%>
  							<tr>
- 								<th>
- 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Tipo documento</th>
+ 								
 
  								<th>
  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Numero documento</th>
- 								
+ 									#identificacion</th>
+
  								<th>
  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
  									Nombre Completo</th>
@@ -17,9 +15,6 @@
  									Télefono</th>
 
 
- 								<th>
- 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Dirección</th>
  								
  								<th>
  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
@@ -29,21 +24,27 @@
  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
  									Accion</th>
  							</tr>
- 								@foreach ($entrenadores as $entrenador)
+ 								@foreach ($instructores as $instructor)
  							<tr>
- 								<td>{{$entrenador->tipo_doc}}</td>
- 								<td>{{$entrenador->num_doc}}</td>
- 								<td>{{$entrenador->full_name}}</td>
- 								<td>{{$entrenador->telefono}}</td>
- 								<td>{{$entrenador->direccion}}</td>
+ 								<td><center>{{$instructor->numDoc}}</td>
+ 								<td><center>{{$instructor->full_name}}</td>
+ 								<td><center>{{$instructor->telefono}}</td>
+ 								
  							
- 								<td>{{$entrenador->nivelAcademico}}</td>
+ 								<td><center>{{$instructor->nivelAcademico}}</td>
  							
  								<td>
- 									<a href="{{route('admin.entrenadores.edit',$entrenador)}}">Editar </a>
+ 									<a href="{{route('admin.instructores.edit',$instructor)}}">
  									
+ 										<img src="/images/app/edit.png" widht="50" height="50" alt="Editar"> 
+ 									</a>
+
+ 									<a href="{{route('admin.instructores.show',$instructor)}}">
+ 										
+ 										<img src="/images/app/view.png" widht="50" height="50" alt="ver detalles">
+ 									</a>
  								</td>
  							</tr>
  								@endforeach
  						</table>
- 						{!!$entrenadores->render()!!}
+ 						{!!$instructores->render()!!}

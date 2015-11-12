@@ -2,26 +2,22 @@
 
 use cultura\Http\Requests;
 use cultura\Http\Controllers\Controller;
-use cultura\Aprendiz;
+use cultura\Matricula;
 use Illuminate\Http\Request;
 
-use cultura\Http\Requests\EditAprendizRequest;
-use cultura\Http\Requests\CreateAprendizRequest;
-
-class AprendizController extends Controller {
+class MatriculaController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index(Request $request)
+	public function index()
 	{
-		$aprendices= Aprendiz::filter($request->get('nombre'),$request->get('estracto'),
-	    $request->get('nivelacademico'),$request->get('num_doc'));
-		
-		return view ('admin.aprendices.index', compact('aprendices'));
+		$matriculas=Matricula::orderBy('created_at','DESC')->paginate();
+		return view('admin.matriculas.index',compact('matriculas'));
 	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -29,7 +25,7 @@ class AprendizController extends Controller {
 	 */
 	public function create()
 	{
-		return view('admin.aprendices.create');
+		return view ('admin.matriculas.create');
 	}
 
 	/**

@@ -1,33 +1,21 @@
-<table class="table table-hover" widht=80%>
+<table class="table table-hover" widht=60%>
  							<tr>
- 								<th>
- 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
-
- 										#id</th>
- 								<th>
- 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>Tipo documento</th>
- 								<th><b><font color=#2D4259 size="4" face="Lucida grande"> <center>Numero documento</th>
+ 								
  								
  								<th>
 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
  									Nombre Completo</th>
+
  								<th>
 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Télefono</th>
- 								<th>
-									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Dirección</th>
- 								
+ 									#Idenficacion</th>
+
+ 								 								
  								<th>
  									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
  									Nivel Academico</th>
- 								<th>
- 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
- 									Sisben</th>
- 								<th>
- 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
 
- 									Estracto</th>
+ 								
  								<th>
  									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
 
@@ -38,30 +26,33 @@
 
  									Accion</th>
  							</tr>
- 								@foreach ($jugadores as $jugador)
- 							<tr>
- 								<td>{{$jugador->id}}</td>
- 								<td>{{$jugador->tipo_doc}}</td>
- 								<td>{{$jugador->num_doc}}</td>
- 								<td>{{$jugador->full_name}}</td>
- 								<td>{{$jugador->telefono}}</td>
- 								<td>{{$jugador->direccion}}</td>
- 							
- 								<td>{{$jugador->nivelAcademico}}</td>
- 								<td>@if($jugador->sisben==1)
- 									Si
- 									@else No
- 									@endif	
 
- 									</td>
- 								<td>{{$jugador->estracto}}</td>
- 								<td>{{$jugador->age}}</td>
+ 								  @foreach ($aprendices as $aprendiz)
+ 							<tr>
+ 								
+ 								<td><center>{{$aprendiz->full_name}}</td>
+ 								<td><center>{{$aprendiz->numDoc}}</td>
+ 							
+ 							
+ 								<td><center>{{$aprendiz->nivelAcademico}}</td>
+ 								
+ 								<td><center>{{$aprendiz->age}}</td>
  								<td>
  									<!-- Pasamos el id que lo recibe el metodo edit -->
- 									<a href="{{route('admin.jugadores.edit',$jugador)}}">Editar </a>
+ 									<a href="{{route('admin.aprendices.edit',$aprendiz)}}">
+ 										
+ 										<img src="/images/app/edit.png" widht="50" height="50" alt="Editar">
+ 									</a>
+
+ 									<a href="{{route('admin.aprendices.show',$aprendiz)}}">
+ 									
+ 										<img src="/images/app/view.png" widht="50" height="50" alt="ver detalles">
+ 									</a>
  									
  								</td>
  							</tr>
  								@endforeach
- 						</table>{!!$jugadores->appends(Request::only(['nombre','estracto','num_doc','nivelAcademico']))->render()!!}
+</table>
+
+{!!$aprendices->appends(Request::only(['nombre','estracto','num_doc','nivelAcademico']))->render()!!}
  						

@@ -17,21 +17,22 @@ class CreateCursosTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre');
 			$table->enum('tema',['Musica','Danza','Teatro','Deporte']);
-			$table->string('descripicion');
-			$table->integer('id_instructor')->unsigned();
+			$table->string('descripcion');
+			$table->integer('instructor_id')->unsigned();
 			$table->enum('horario',['Diurno','Nocturno','Fines de semana']);
-			$table->boolean('active')->default(true);
+			$table->boolean('activo')->default(true);
 			$table->mediumText	('observaciones')->nullable();
 			
 			$table->timestamps();
 
-			$table->foreign('id_instructor')
+			$table->foreign('instructor_id')
 				  ->references('id')
 				  ->on('instructores')
 				  ->onUpdate('CASCADE')
-				  ->onDelete('CASCADE')
+				  ->onDelete('CASCADE');
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

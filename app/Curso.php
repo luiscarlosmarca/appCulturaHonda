@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace cultura;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -6,16 +6,23 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Session;
+
 class Curso extends Model {
 
 	protected $table="cursos";
-	protected $fillable = ['nit','nombre','direccion','entrenador_id','telefono','disciplina','categoria','observaciones' ];
+	protected $fillable = ['nit','nombre','direccion','entrenador_id','telefono','tema','horario','observaciones' ];
 
 
-		public function  entrenador()
+	public function  matriculados()
 		{
-		 return $this->belongsTo('App\Entrenador');
+		 return $this->belongsToMany('cultura\Aprendiz', 'matriculas');
 		}
+
+	public function instructor()
+		{
+			return $this->belongsTo('cultura\instructor');
+		}
+
 	public function scopeNombre($query,$nombre)
 	{
 		//dd("scope".$name);
@@ -40,7 +47,7 @@ class Curso extends Model {
 		}
 
 
-public function scopeEntrenador_id($query, $entrenador_id)
+	public function scopeEntrenador_id($query, $entrenador_id)
 
 		{
 
@@ -54,40 +61,40 @@ public function scopeEntrenador_id($query, $entrenador_id)
 				}
 		}
 
-public function scopeCategoria($query, $categoria)
+	public function scopeHorario($query, $horario)
 
 		{
 
-			$categorias=config('categoria.categoria');
+			$horarios=config('horario.horario');
 
 
-			if($categoria != "" && isset($categorias[$categoria]))
+			if($horario != "" && isset($horarios[$horario]))
 				{
-					$query->where('categoria',$categoria);
+					$query->where('horario',$horario);
 					//Session::flash('message','Estracto:'.$estracto.' : ' .' Resultado de la busqueda');	
 				}
 		}
-		public function scopeDisciplina($query, $disciplina)
+	public function scopeTema($query, $tema)
 			
 		{
 		
-			$disciplinas=config('disciplina.disciplina');
+			$temas=config('tema.tema');
 
 
-			if($disciplina != "" && isset($disciplinas[$disciplina]))
+			if($tema != "" && isset($temas[$tema]))
 				{
-					$query->where('disciplina',$disciplina);
+					$query->where('tema',$tema);
 					//Session::flash('message','Estracto:'.$estracto.' : ' .' Resultado de la busqueda');	
 				}
 		}
 
 
-	public static function filter($nombre,$disciplina,$nit,$categoria)
+	public static function filter($nombre,$tema,$horario)
 		{
 			return Curso::nombre($nombre)
-				->disciplina($disciplina)
-				->nit($nit)
-				->categoria($categoria)
+				->tema($tema)
+				
+				->horario($horario)
 				->orderBy('nombre','ASC')
 				->paginate();
 		}

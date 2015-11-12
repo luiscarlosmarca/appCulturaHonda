@@ -1,43 +1,59 @@
 <table class="table table-hover" >
- 							<tr>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-#id</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Nombre equipo</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Disciplina</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Categoria</th>
+ 					
+ 					<tr>
+ 								
+ 						<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+								Nombre Curso
+						</th>
 
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Capitan del Equipo</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Observaciones</th>
- 								<th> 								<font color=#2D4259 size="4" face="Lucida grande"> <center>
-Acciones</th>
- 							</tr>
- 						@foreach ($equipos as $equipo)
- 							<tr>
- 								<td>{{$equipo->id}}</td>
- 								<td>{{$equipo->nombre}}</td>
- 								<td>{{$equipo->disciplina}}</td>
- 								<td>{{$equipo->categoria}}</td>
+					 							
+ 						<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+ 							Tema
+ 						</th>
+
+ 						<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+ 							Descripcion</th>
+ 						
+ 							<th><font color=#2D4259 size="4" face="Lucida grande"> <center>
+ 							Acciones</th>
+ 					</tr>
+
+ 						@foreach ($cursos as $curso)
+ 					<tr>
+ 								
+ 								<td><center>{{$curso->nombre}}</td>
+ 								
+ 								<td><center>{{$curso->tema}}</td>
+ 								
+
+ 						     	<td><center>{{$curso->descripcion}}</td>
+
+								
+								
+								<td><center>
+									<a href="{{url('admin/detalles-cursos',$curso)}}">
+										<img src="/images/app/view.png" widht="50" height="50" alt="Ver detalles">
+									</a>
+								</td>
+
+								<td>
+									<a href="{{route('admin.cursos.show',$curso)}}">
+										<img src="/images/app/users.png" widht="50" height="50" alt="Ver matriculados">
+									</a>
+ 									
+ 								</td>
  								<td>
+ 									<a href="{{route('admin.cursos.edit',$curso)}}">
+ 										<img src="/images/app/edit.png" widht="50" height="50" alt="Editar">
 
- 									@if(! empty($equipo->jugador->nombre))
- 									{{$equipo->jugador->nombre}}
- 									@else <font color="red"> El capitan fue borrado
- 									@endif	
-
- 									</td>
+ 									</a>
+ 								</td>
 
  								
- 								<td>{{$equipo->observaciones}}</td>
- 						<td>
- 								<a href="{{route('admin.equipos.edit',$equipo)}}">Editar </a></td>
  								
- 							</tr>
+ 					</tr>
  								@endforeach
- 						</table>
- 						{!!$equipos->appends(Request::only(['nombre','disciplina','categoria']))->render()!!}
+</table>
+
+ 						{!!$cursos->appends(Request::only(['nombre','horario','tema']))->render()!!}
  						 				

@@ -5,32 +5,35 @@
 	<div class="row">
 		<div class="col-md-18">
 				<div class="panel panel-primary">
-			<div class="panel-heading">
-        <h3 class="panel-title">Listados de equipos </h3>
-      </div>
+					
+					<div class="panel-heading">
+       			 		<h3 class="panel-title">Listados de Cursos </h3>
+      				</div>
 
-	@if (Session::has('message'))
+						@if (Session::has('message'))
 
-					<p class="alert alert-info"> {{Session::get('message') }}</p>
+							<p class="alert alert-info"> {{Session::get('message') }}</p>
 
-					@endif
-				<div class="panel-body">
-					@include('admin.equipos.partials.search')
-				 @include('admin.equipos.partials.table') 
+						@endif
+							<div class="panel-body">
+							 @include('admin.cursos.partials.search')
+							 @include('admin.cursos.partials.table') 
+							</div>
 				</div>
-			</div>
+		
+
 		</div>
 		
 
-			<p>
+		<p>
  							
- 							<font color="white">
+ 		<font color="white">
 		Tenemos 
  			
- 						{{$equipos->total()}}
- 						Equipos
+ 		{{$cursos->total()}} Cursos
  						
- 						</p>
+ 		</p>
+		
 	</div>
 	 
 </div>

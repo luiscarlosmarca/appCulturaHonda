@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAprendicesTable extends Migration {
+class CreateInstructoresTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,26 +12,22 @@ class CreateAprendicesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('aprendices', function(Blueprint $table)
+		Schema::create('instructores', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('nombre');
 			$table->string('apellido');
-			$table->string('foto');
-			$table->date('FeNa')->nullable();
-			$table->enum('tipoDoc',['Tarjeta de identidad','Registro civil','Cedula']);
-			$table->string('numDoc');
+			$table->double('numDoc');
 			$table->enum('nivelAcademico',['Primaria','Bachiller','Tecnico','Tecnologico']);
+			$table->string('profesion');
 			$table->string('telefono');
-			
-			$table->boolean('sisben');
-			$table->char('estracto',2);
+			$table->string('direccion');
+			$table->string('email');
 			
 			
 			
 			$table->timestamps();
 		});
-	
 	}
 
 	/**

@@ -6,32 +6,40 @@
 		<div class="col-md-15">
 			<div class="panel panel-default">
 				<div class="panel panel-primary">
-      <div class="panel-heading">
+				      
+
+				      <div class="panel-heading">
 
 
-        <h1 class="panel-title">Listado de Entrenadores</h1>
-      </div>
+				        <h1 class="panel-title">Listado de Instructores</h1>
+				      
 
-      				@if (Session::has('message'))
+				      </div>
 
-					<p class="alert alert-info"> {{Session::get('message') }}</p>
+      						@if (Session::has('message'))
 
-					@endif
-      <div class="panel-body">
-	   @include('admin.entrenadores.partials.search')
+							<p class="alert alert-info"> {{Session::get('message') }}</p>
 
-       @include('admin.entrenadores.partials.table')
-      </div>
-    </div>
+							@endif
+
+				     
+
+				      <div class="panel-body">
+						   @include('admin.instructores.partials.search')
+
+					       @include('admin.instructores.partials.table')
+				      </div>
+    			</div>
+			
 			</div>
 			
 			<p>
- 					<font color="white">
-		Tenemos 
- 						{{$entrenadores->total()}}
- 						Entrenadores
- 						
- 						</p>
+ 				
+ 				<font color="white">
+						Tenemos 
+ 						{{$instructores->total()}}
+ 						Instructores
+ 			</p>
 		</div>
 	</div>
 </div>

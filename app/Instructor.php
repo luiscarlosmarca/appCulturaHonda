@@ -1,11 +1,11 @@
-<?php namespace App;
+<?php namespace Cultura;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-
+use Illuminate\Support\Facades\Session;
 class Instructor extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -31,6 +31,12 @@ class Instructor extends Model implements AuthenticatableContract, CanResetPassw
 	 */
 
 
+
+	public function cursos()
+
+	{
+		return $this->hasMany('cultura\cursos');
+	}
 
 
 	public function getfullnameAttribute()
@@ -89,7 +95,7 @@ class Instructor extends Model implements AuthenticatableContract, CanResetPassw
 				->nivelacademico($nivelAcademico)
 				->num_doc($num_doc)
 				->orderBy('nombre','ASC')
-				->paginate();
+				->paginate(10);
 		}
 		
 }

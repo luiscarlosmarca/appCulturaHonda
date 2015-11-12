@@ -1,16 +1,10 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace cultura\Http\Controllers\Admin;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Instructor;
-use App\Http\Requests\EditInstructorRequest;
-use App\Http\Requests\CreateInstructorRequest;
+use cultura\Http\Requests;
+use cultura\Http\Controllers\Controller;
+use cultura\Instructor;
 use Illuminate\Http\Request;
 
-use Illuminate\Routing\Redirector;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
 class InstructorController extends Controller {
 
 	/**
@@ -20,11 +14,10 @@ class InstructorController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-	//$instructores= Instructor::paginate();
-	$instructores= Instructor::filter($request->get('nombre'),$request->get('nivelacademico'),$request->get('num_doc'));
+		$instructores= Instructor::filter($request->get('nombre'),$request->get('nivelacademico'),$request->get('num_doc'));
 		return view ('admin.instructores.index', compact('instructores'));
 	
-	}
+	}	
 
 	/**
 	 * Show the form for creating a new resource.
@@ -41,22 +34,9 @@ class InstructorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateInstructorRequest $request)
+	public function store()
 	{
-		
-		
-		$entrenador = Instructor::create($request->all());
-
-		Session::flash('message',$entrenador->full_name.' Fue creado'.' '.'#id asignado:'.' '.$entrenador
-			->id);
-		
-
-		return redirect()->route('admin.instructores.index');
-
-
-
-		
-
+		//
 	}
 
 	/**
@@ -78,9 +58,7 @@ class InstructorController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$entrenador=Instructor::findOrfail($id);
-
-		return view('admin.instructores.edit',compact('entrenador'));		
+		//
 	}
 
 	/**
@@ -89,14 +67,9 @@ class InstructorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(EditInstructorRequest $request, $id)
+	public function update($id)
 	{
-	  $entrenador=Instructor::findOrFail($id);
-
-		$entrenador->fill($request->all());
-		$entrenador->save();
-	Session::flash('message',$entrenador->full_name.' Fue actualizado');
-		return redirect()->route('admin.instructores.index');
+		//
 	}
 
 	/**
@@ -107,12 +80,7 @@ class InstructorController extends Controller {
 	 */
 	public function destroy($id)
 	{
-	$entrenador = Instructor::findOrFail($id);
-
-		$entrenador->delete();
-
-		Session::flash('message',$entrenador->full_name.' Fue eliminado');
-		return redirect()->route('admin.instructores.index');
+		//
 	}
 
 }
