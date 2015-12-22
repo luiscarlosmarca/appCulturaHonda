@@ -4,7 +4,7 @@ use cultura\Http\Requests;
 use cultura\Http\Controllers\Controller;
 use cultura\Instructor;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 class InstructorController extends Controller {
 
 	/**
@@ -34,9 +34,19 @@ class InstructorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
+
+	
 	{
-		//
+		$instructor = Instructor::create($request->all());
+		
+		Session::flash('message',$instructor->nombre.'Fue creado exitosamente');
+
+		return redirect()->route('admin.instructores.index');
+		
+
+		
+
 	}
 
 	/**

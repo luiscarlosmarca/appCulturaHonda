@@ -25,11 +25,16 @@ Creando nuevo aprendiz | Casa de la Cultura
 				<!--   Formulario para crear el jugador -->
 			
 				
-				@include('admin.aprendices.partials.fields')
-				<button type="button" class="btn btn-success btn-lg btn-block">Crear Aprendiz</button>
+        	{!!Form::open(['route'=>'admin.aprendices.store', 'method' => 'POST','enctype'=>'multipart/form-data']) !!} 
+
+  			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+			@include('admin.aprendices.partials.fields')
+				
+			<button type="submit" class="btn btn-success btn-lg btn-block">Crear Aprendiz</button>
 									   
 
-				{!!Form::close() !!} 	
+			 	{!!Form::close() !!} 	
 		</div>	
 		</div>	
 		</div>	

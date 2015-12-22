@@ -4,10 +4,10 @@ use cultura\Http\Requests;
 use cultura\Http\Controllers\Controller;
 use cultura\Aprendiz;
 use Illuminate\Http\Request;
-
+use \Input as Input;
 use cultura\Http\Requests\EditAprendizRequest;
 use cultura\Http\Requests\CreateAprendizRequest;
-
+use Illuminate\Support\Facades\Session;
 class AprendizController extends Controller {
 
 	/**
@@ -37,9 +37,26 @@ class AprendizController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		if(Input::hasFile('file'))
+	{
+
+	    $file = Input::file('file');
+	    $file->move('upload',$file->getClientOriginalName());
+	 	$foto='img src="/upload/'.$file->getClientOriginalName().'"';
+			
+		$aprendices = new Aprendiz($request->all());
+		$aprendices->foto=$file->getClientOriginalName();
+		$aprendices->save();
+   
+  
+		 	Session::flash('message',$aprendices->nombre.' Fue creado');
+		
+			return redirect()->route('admin.aprendices.index');
+	}
+ 
+       //obtenemos el nombre del archivo
 	}
 
 	/**

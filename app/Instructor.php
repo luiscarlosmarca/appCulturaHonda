@@ -22,7 +22,7 @@ class Instructor extends Model implements AuthenticatableContract, CanResetPassw
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['tipo_doc','num_doc','nombre','apellido','FeNa','direccion','telefono','email','nivelAcademico','observaciones' ];
+	protected $fillable = ['numDoc','nombre','apellido','direccion','telefono','email','nivelAcademico','observaciones' ];
 
 	/**
 	 * The attributes excluded from the model's JSON form.

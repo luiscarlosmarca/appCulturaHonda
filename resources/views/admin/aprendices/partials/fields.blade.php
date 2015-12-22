@@ -1,13 +1,13 @@
 <div class="container">
 
- {!!Form::open(['route'=>'admin.aprendices.store', 'method' => 'POST']) !!} 
+
 						
 	<div class="col-xs-6">
 			
-			 <div class="form-group">
+			<div class="form-group">
 					    
 					<label for="exampleInputFile">Foto de perfil</label>
-					 <input type="file" id="exampleInputFile">
+					 <input type="file" class="form-control" name="file" >
 					 <p class="help-block">Imagenes 2kb .jpg y .png.</p>
 			</div>
 					  
@@ -33,10 +33,11 @@
 						
 			<div class="form-group">
 						{!!Form::label('num_doc', 'Numero de Documento') !!}
-						{!!Form::text('num_doc',null,['class'=>'form-control','placeholder' => 'Escriba su numero de identiificación civil','requiered']) !!}
+						{!!Form::text('numDoc',null,['class'=>'form-control','placeholder' => 'Escriba su numero de identiificación civil','requiered']) !!}
 				
 		   </div>
 	</div>
+
  	<div class="col-xs-6">
 				<img src="/images/logo.png" widht="300" height="100">
 

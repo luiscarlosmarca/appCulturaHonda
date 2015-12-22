@@ -14,64 +14,98 @@
 						<div class="panel-body">
 					<table class="table table-hover" >
 					 					
-					 					<tr>
+					 		<tr>
 					 								
-					 						<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+					 				<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
 													Foto
-											</th>
+									</th>
 
-											<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+									<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
 													Nombre
-											</th>
+									</th>
 					 							
-					 						<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
+					 				<th> <font color=#2D4259 size="4" face="Lucida grande"> <center>
 					 								Edad
-					 						</th>
+					 				</th>
 
 					 						
-					 					</tr>
+					 		</tr>
 												@foreach ($cursos->matriculados as $matriculado)
-					 					<tr>
+					 					
+					 		<tr>
 					 								
- 										<td><center><a href="/upload/{{$matriculado->foto}}" target="black"><img src="/upload/{{$matriculado->foto}}" height="40" width="40"></a></td>
-					 								<td><center>{{ $matriculado->fullname }}</td>
+ 									<td><center><a href="/upload/{{$matriculado->foto}}" target="black"><img src="/upload/{{$matriculado->foto}}" height="40" width="40"></a>
+
+ 									</td>
 					 								
-					 								<td><center>{{ $matriculado->age }}</td>
+					 				<td><center>{{ $matriculado->fullname }}
+
+					 				</td>
+					 								
+					 				<td><center>{{ $matriculado->age }}
+
+					 				</td>
 						
 					 						     	
 
-													<td>
-
-													</td>
+													
 										
 
 					 								
-					 					</tr>
+					 		</tr>
 					 								@endforeach
 
-					 					<tr>
+
+						<tr>
+						 		{!!Form::open(['route'=>'admin.matriculas.store', 'method' => 'POST']) !!} 
+						 			<td>
+										<center>
+										<h4>
+											Agregar aprendiz a este curso
+										</h4>
+						 			</td>
+						 			<td>
+						 				<center>
+						 				{!!Form::label('aprendiz_id', 'Id del Aprendiz') !!}
+						 			</td>
+
+						 			<td>
+						 				<center>
+						 			    {!!Form::text('aprendiz_id',null,['class'=>'form-controll','placeholder' => 'Escriba el id del aprendiz','requiered']) !!}
+
+						 			</td>
+					 	</tr>
+
+					 		<tr>
 					 								
-					 								<td><center>
-					 							<a href="{{url('home')}}">
-					 										<img src="/images/app/home.png" widht="50" height="50" alt="Incio"></td>
-					 									</a>
-					 								<td><center>
-					 									<a href="{{url('/admin/cursos')}}">
-					 										<img src="/images/app/back.png" widht="50" height="50" alt="Atras"></td>
-					 									</a>
-					 								<td><center>
-					 									<a href="{{url('/admin/store')}}">
-					 										<img src="/images/app/add.png" widht="50" height="50" alt="Matricular"></td>
-														</a>
-					 						     	
+					 				<td>
+					 					<center>
+					 					
+					 					<a href="{{url('home')}}">
+					 					<img src="/images/app/home.png" widht="50" height="50" alt="Incio">
+					 					</a>
 
-													<td>
+					 				</td>
+					 									
+					 				<td>
+					 					<center>
+					 					<a href="{{url('/admin/cursos')}}">
+					 					<img src="/images/app/back.png" widht="50" height="50" alt="Atras">
+					 					</a>
 
-													</td>
-										
-
+					 				</td>
+					 									
+					 			
+					 				<td>
+					 					<center>
+					 					<button type="submit">Agregar Aprendiz</button>
+					 				</td>
+														
+					 		
 					 								
-					 					</tr>
+					 		</tr>
+
+
 
 					</table>
 

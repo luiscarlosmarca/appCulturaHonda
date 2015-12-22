@@ -33,9 +33,10 @@ class MatriculaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		dd($request);
+
 	}
 
 	/**

@@ -2,6 +2,13 @@
  							<tr>
  								
  								
+
+ 								<th>
+									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
+ 									Foto
+
+ 								</th>
+
  								<th>
 									<b><font color=#2D4259 size="4" face="Lucida grande"> <center>
  									Nombre Completo</th>
@@ -29,7 +36,9 @@
 
  								  @foreach ($aprendices as $aprendiz)
  							<tr>
- 								
+
+ 								<td><a href="/upload/{{$aprendiz->foto}}" target="black"><img src="/upload/{{$aprendiz->foto}}" height="100" width="80"></a></td>
+
  								<td><center>{{$aprendiz->full_name}}</td>
  								<td><center>{{$aprendiz->numDoc}}</td>
  							

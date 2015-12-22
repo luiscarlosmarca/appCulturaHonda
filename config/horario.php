@@ -4,7 +4,7 @@ return array(
 		[''			         =>'Seleccione su horario',
 		'Diurno'	         =>'Diurno',
 		'Nocturno'		     =>'Nocturno',
-		'fines de semana'	 =>'fines de semana'
+		'fines de semana'	 =>'Fines de semana'
 		
 	]
 

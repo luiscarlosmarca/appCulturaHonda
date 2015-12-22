@@ -36,3 +36,5 @@ Route::get('login',function ()
 {
 	return view('auth.index');	
 });
+
+Route::post('aprendiz/crear', 'Admin\AprendizController@store');

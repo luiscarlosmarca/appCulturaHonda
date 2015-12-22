@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 class Curso extends Model {
 
 	protected $table="cursos";
-	protected $fillable = ['nit','nombre','direccion','entrenador_id','telefono','tema','horario','observaciones' ];
+	protected $fillable = ['nombre','instructor_id','telefono','tema','horario','descripcion' ];
 
 
 	public function  matriculados()

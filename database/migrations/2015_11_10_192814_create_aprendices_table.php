@@ -21,7 +21,7 @@ class CreateAprendicesTable extends Migration {
 			$table->date('FeNa')->nullable();
 			$table->enum('tipoDoc',['Tarjeta de identidad','Registro civil','Cedula']);
 			$table->double('numDoc');
-			$table->enum('nivelAcademico',['Primaria','Bachiller','Tecnico','Tecnologico']);
+			$table->enum('nivelAcademico',['Primaria','Bachiller','Tecnico','Tecnologico','Profesional']);
 			$table->string('telefono');
 			
 			$table->boolean('sisben');

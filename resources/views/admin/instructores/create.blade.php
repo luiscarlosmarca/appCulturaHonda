@@ -24,7 +24,7 @@ Creando nuevo Instructor | Casa de la cultura - HONDA TOLIMA
 								
 									
 				   @include('admin.instructores.partials.fields')
-					<button type="button" class="btn btn-success btn-lg btn-block">Crear Instructor</button>
+					<button type="submit" class="btn btn-success btn-lg btn-block">Crear Instructor</button>
 									   
 
 				    {!!Form::close() !!} 	

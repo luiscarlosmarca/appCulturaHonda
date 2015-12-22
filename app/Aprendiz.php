@@ -23,7 +23,7 @@ class Aprendiz extends Model implements AuthenticatableContract, CanResetPasswor
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['estracto_doc','num_doc','nombre','apellido','FeNa','telefono','sisben','estracto','nivelAcademico','foto'];
+	protected $fillable = ['estracto_doc','numDoc','nombre','apellido','FeNa','telefono','sisben','estracto','nivelAcademico','foto'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.

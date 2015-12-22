@@ -17,14 +17,14 @@ Creando nuevo Curso | Casa de la cultura HONDA - TOLIMA
 				</div>
 
 				<div class="panel-body">
-<!--   Imprime el error de  validacion -->
+					<!--   Imprime el error de  validacion -->
 						@include('admin.aprendices.partials.error')
 
 					<!--   Formulario para crear el jugador -->
 							
 								
 						@include('admin.cursos.partials.fields')
-						<button type="button" class="btn btn-success btn-lg btn-block">Crear Curso</button>
+						<button type="submit" class="btn btn-success btn-lg btn-block">Crear Curso</button>
 								   
 
 					    {!!Form::close() !!} 	

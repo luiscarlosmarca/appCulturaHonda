@@ -1,7 +1,8 @@
 <div class="container">
 
- {!!Form::open(['route'=>'admin.aprendices.store', 'method' => 'POST']) !!} 
+ {!!Form::open(['route'=>'admin.cursos.store', 'method' => 'POST']) !!} 
 						
+
 	<div class="col-xs-6">
 			
 								  
@@ -13,7 +14,7 @@
 
 	<div class="form-group">
 			 		{!!Form::label('horario', 'Horario') !!}
-					{!!Form::text('horario',null,['class'=>'form-controll','placeholder' => 'Escriba el horario estimado	','requiered']) !!}
+					{!!Form::select('tema',config('horario.horario'), null, ['class'=>'form-controlll']) !!}
 	 </div>
 
 			<div class="form-group">	
@@ -25,17 +26,29 @@
 			</div>
 
 						
-			<div class="form-group">
+										
+		<div class="form-group">
 					{!!Form::label('num_doc', 'Descripción') !!}
 					{!!Form::textarea('descripcion',null,['class'=>'form-controll','placeholder' => 'Escriba la descripcion del curso','requiered']) !!}
 	
-		   </div>
+		</div>	 
+		   
 	</div>
  	<div class="col-xs-6">
-				<img src="/images/logo.png" widht="300" height="100">
+				<img src="/images/logo.png" widht="400" height="200">
 
-								
-			 		 
+	
+		<div class="form-group">
+					{!!Form::label('instructor', 'Id del Instructor') !!}
+					{!!Form::text('instructor_id',null,['class'=>'form-controll','placeholder' => 'Escriba el id del instructor de este curso','requiered']) !!}
+	
+		</div>		
+
+		<div class="form-group">
+					{!!Form::label('Observaciones', 'Observaciones') !!}
+					{!!Form::text('observaciones',null,['class'=>'form-controll','placeholder' => 'Alguna observacion (opcional)','requiered']) !!}
+	
+		</div>	 	 
 
 
    </div>

@@ -8,8 +8,8 @@ return array(
 		'Bachiller'			=>'Bachiller',
 		'Tecnico'			=>'Tecnico',
 		'Tecnologico'		=>'Tecnologico',
-		'Profesional'		=>'Profesional',
-		'PostGrado'			=>'PostGrado'
+		'Profesional'		=>'Profesional'
+		
 	]
 
 

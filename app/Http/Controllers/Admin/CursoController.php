@@ -5,6 +5,7 @@ use cultura\Http\Controllers\Controller;
 use cultura\Curso;
 use cultura\Matricula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CursoController extends Controller {
 
@@ -37,9 +38,16 @@ class CursoController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		
+		$curso= Curso::create($request->all());
+		Session::flash ('message',$curso->nombre.'El curso fue creado exitosamente');
+	
+		return redirect()->route('admin.cursos.index');
+
+		
+		
 	}
 
 	/**

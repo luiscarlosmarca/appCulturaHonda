@@ -17,17 +17,12 @@
 					 
 			 </div>
 
-			<div class="form-group">	
-
-						{!!Form::label('tipo_doc', 'Tipo de Documento') !!}
-						{!!Form::select('tipo_doc',['Seleccione su documento de identidad','Cedula'=>'Cedula','Tarjeta de identidad'=>'Tarjeta de identidad','Registro Civill'=>'Registro civil','Pasaporte'=>'Pasaporte'], null, ['class'=>'form-control']) !!}
-						 
-			</div>
+		
 
 					
 			<div class="form-group">
 			   			{!!Form::label('num_doc', 'Numero de Documento') !!}
-						{!!Form::text('num_doc',null,['class'=>'form-control','placeholder' => 'Escriba su numero de identiificación civil','requiered']) !!}
+						{!!Form::text('numDoc',null,['class'=>'form-control','placeholder' => 'Escriba su numero de cedula de ciudadania	','requiered']) !!}
 				
 		  </div>
 
@@ -39,36 +34,33 @@
 			 </div>
 
 
+		<div class="form-group">	
+					{!!Form::label('nivel', 'Nivel academico') !!}
+					{!!Form::select('nivelAcademico',config('nivelAcademico.nivelAcademico'), null, ['class'=>'form-controll']) !!}
+				
+		</div>
+
 
 	 </div>
 
 	<div class="col-xs-6">
 				<img src="/images/logo.png" widht="5s00" height="200">
 
-		<div class="form-group">	
-					{!!Form::label('num_doc', 'Nivel academico') !!}
-					{!!Form::select('nivelAcademico',config('nivelAcademico.nivelAcademico'), null, ['class'=>'form-controll']) !!}
-				
-		</div>
-
 
 		<div class="form-group">
 
-					{!!Form::label('num_doc', 'Telefono') !!}
+					{!!Form::label('telefono', 'Telefono') !!}
 					{!!Form::text('telefono' ,null,['class'=>'form-controll','placeholder' => 'Escriba su telefóno','requiered']) !!}
 
 		</div>
 
 		<div class="form-group">
 
-					{!!Form::label('num_doc', 'Correo electronico') !!}
+					{!!Form::label('email', 'Correo electronico') !!}
 					{!!Form::text('email',null,['class'=>'form-controll','placeholder' => ' Escriba su Correo electronico','requiered']) !!}
 		</div>
 
-		<div class="form-group">
-					{!!Form::label('num_doc', 'Fecha de nacimiento') !!}
-					{!!Form::date('FeNa',null,['class'=>'form-controll','placeholder' => ' Escriba su fecha de nacimiento aaaa-mm-dd','requiered']) !!}
-		</div>							
+		s						
 		 		 
 	</div>
 					 

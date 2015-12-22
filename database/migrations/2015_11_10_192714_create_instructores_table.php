@@ -18,7 +18,7 @@ class CreateInstructoresTable extends Migration {
 			$table->string('nombre');
 			$table->string('apellido');
 			$table->double('numDoc');
-			$table->enum('nivelAcademico',['Primaria','Bachiller','Tecnico','Tecnologico']);
+			$table->enum('nivelAcademico',['Primaria','Bachiller','Tecnico','Tecnologico','Profesional']);
 			$table->string('profesion');
 			$table->string('telefono');
 			$table->string('direccion');
