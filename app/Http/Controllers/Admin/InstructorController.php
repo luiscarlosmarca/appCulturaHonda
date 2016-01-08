@@ -5,6 +5,8 @@ use cultura\Http\Controllers\Controller;
 use cultura\Instructor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use cultura\Http\Requests\EditInstructorRequest;
+use cultura\Http\Requests\CreateInstructorRequest;
 class InstructorController extends Controller {
 
 	/**
@@ -68,7 +70,9 @@ class InstructorController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$instructor=Instructor::findOrfail($id);
+		return view ('admin.instructores.edit',compact('instructor'));
+
 	}
 
 	/**
@@ -77,9 +81,14 @@ class InstructorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditInstructorRequest $request,$id)
 	{
-		//
+		$instructor=Instructor::findOrfail($id);
+		$instructor->fill($request->all());
+		$instructor->save();
+		Session::flash('message',$instructor->nombre.'Fue editado exitosamente');
+
+		return redirect()->route('admin.instructores.index');
 	}
 
 	/**

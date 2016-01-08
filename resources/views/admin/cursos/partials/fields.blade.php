@@ -41,7 +41,7 @@
 		<div class="form-group">
 					{!!Form::label('instructor', 'Id del Instructor') !!}
 					{!!Form::text('instructor_id',null,['class'=>'form-controll','placeholder' => 'Escriba el id del instructor de este curso','requiered']) !!}
-	
+		
 		</div>		
 
 		<div class="form-group">

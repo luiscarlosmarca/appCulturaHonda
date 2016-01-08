@@ -2,7 +2,7 @@
 
 use cultura\Http\Requests\Request;
 
-class CreateJugadorRequest extends Request {
+class CreateAprendizRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.

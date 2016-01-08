@@ -2,9 +2,9 @@
 
 use cultura\Http\Requests\Request;
 
-class CreateCanchaRequest extends Request {
+class EditAprendizRequest extends Request {
 
-	/**s
+	/**
 	 * Determine if the user is authorized to make this request.
 	 *
 	 * @return bool
@@ -22,8 +22,10 @@ class CreateCanchaRequest extends Request {
 	public function rules()
 	{
 		return [
-		'nombre'		 => 'required|string',
-		'barrio'		 => 'required|string',
+		'nombre'	 => 'required|string'
+		'apellido'   => 'required|string',
+		
+		'numDoc'     =>'required|unique:aprendices',
 		];
 	}
 

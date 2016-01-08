@@ -1,4 +1,4 @@
-<?php namespace cultura;
+	<?php namespace cultura;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;

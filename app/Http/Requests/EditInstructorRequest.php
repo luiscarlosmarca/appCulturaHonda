@@ -2,7 +2,7 @@
 
 use cultura\Http\Requests\Request;
 
-class CreateEquipoRequest extends Request {
+class EditInstructorRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,10 +22,10 @@ class CreateEquipoRequest extends Request {
 	public function rules()
 	{
 		return [
-		'nombre'	     => 'required|string',
-		'disciplina'     => 'required|string',	
-		'categoria'      => 'required|string',		
-		'jugador_id' =>'required|exists:jugadores,id',
+		'nombre'	 => 'required|string',
+		'apellido'   => 'required|string',
+
+		'numDoc'     =>'required|unique:aprendices',
 		];
 	}
 

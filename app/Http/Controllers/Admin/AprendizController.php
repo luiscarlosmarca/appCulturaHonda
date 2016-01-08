@@ -40,21 +40,26 @@ class AprendizController extends Controller {
 	public function store(Request $request)
 	{
 		if(Input::hasFile('file'))
-	{
+		{
 
-	    $file = Input::file('file');
-	    $file->move('upload',$file->getClientOriginalName());
-	 	$foto='img src="/upload/'.$file->getClientOriginalName().'"';
+		    $file = Input::file('file');
+		    $file->move('upload',$file->getClientOriginalName());
+		 	$foto='img src="/upload/'.$file->getClientOriginalName().'"';
+				
+			$aprendices = new Aprendiz($request->all());
+			$aprendices->foto=$file->getClientOriginalName();
+			$aprendices->save();
+	   
+	  
+			 	Session::flash('message',$aprendices->nombre.' Fue creado');
 			
-		$aprendices = new Aprendiz($request->all());
-		$aprendices->foto=$file->getClientOriginalName();
-		$aprendices->save();
-   
-  
-		 	Session::flash('message',$aprendices->nombre.' Fue creado');
-		
-			return redirect()->route('admin.aprendices.index');
-	}
+				return redirect()->route('admin.aprendices.index');
+		}
+
+		$aprendices = Aprendiz::create($request->all());
+		Session::flash('message',$aprendices->nombre.' Fue creado');
+			
+		return redirect()->route('admin.aprendices.index');
  
        //obtenemos el nombre del archivo
 	}
@@ -78,7 +83,10 @@ class AprendizController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$aprendices=Aprendiz::findOrfail($id);
+		
+		return view('admin.aprendices.edit',compact('aprendices'));
+
 	}
 
 	/**
@@ -87,9 +95,16 @@ class AprendizController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditAprendizRequest $request, $id)
 	{
-		//
+		$aprendices=Aprendiz::findOrfail($id);
+		$aprendices->fill($request->all());
+
+
+
+		$aprendices->save();
+		Session::flash('message',$aprendices->nombre.' Fue editado');
+		return redirect()->route('admin.aprendices.index');
 	}
 
 	/**

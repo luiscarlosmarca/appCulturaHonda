@@ -7,13 +7,13 @@
 			 <div class="form-group">
 
 					 <label for="nombres">Nombres</label>
-					  <input type="text" name="nombre"class="form-control" id="nombre" placeholder="Digite sus nombres">
+					{!!Form::text('nombre',null,['class'=>'form-control','placeholder' => 'Escriba su nombre	','requiered']) !!}
 			 </div>
 
 						
 			<div class="form-group">
 					  <label for="apellido">Apellidos</label>
-					  <input type="text" name="apellido"class="form-control" id="apellido" placeholder="Digite sus apellidos">
+						{!!Form::text('apellido',null,['class'=>'form-control','placeholder' => 'Escriba su apellido	','requiered']) !!}
 					 
 			 </div>
 

@@ -31,9 +31,7 @@
 								
 								
 								<td><center>
-									<a href="{{url('admin/detalles-cursos',$curso)}}">
-										<img src="/images/app/view.png" widht="50" height="50" alt="Ver detalles">
-									</a>
+									
 								</td>
 
 								<td>

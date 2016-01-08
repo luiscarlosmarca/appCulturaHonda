@@ -1,33 +1,32 @@
-<input type="hidden" name="_token" value="{!! csrf_token() !!}">
+
 <div class="container">
 
 
 						
 	<div class="col-xs-6">
 			
-			<div class="form-group">
-					    
-					<label for="exampleInputFile">Foto de perfil</label>
-					 <input type="file" class="form-control" name="file" >
-					 <p class="help-block">Imagenes 2kb .jpg y .png.</p>
-			</div>
+			
 					  
 			<div class="form-group">
 
 					 <label for="nombre">Nombres</label>
 					 <input type="text" name="nombre"class="form-control" id="nombre" placeholder="Digite sus nombres">
+			         
+			         {!!Form::text('nombre',null,['class'=>'form-control','placeholder' => 'Escriba su nombre','requiered']) !!}
+
 			 </div>
 
 			<div class="form-group">
 
 					  <label for="apellido">Apellidos</label>
-					  <input type="text" name="apellido"class="form-control" id="apellido" placeholder="Digite sus apellidos">
+					  {!!Form::text('apellido',null,['class'=>'form-control','placeholder' => 'Escriba su apellido','requiered']) !!}
+
 		    </div>
 
 			<div class="form-group">	
 
 					   {!!Form::label('tipo_doc', 'Tipo de Documento') !!}
-					   {!!Form::select('tipo_doc',['Seleccione su documento de identidad','Cedula'=>'Cedula','Tarjeta de identidad'=>'Tarjeta de identidad','Registro Civill'=>'Registro civil','Pasaporte'=>'Pasaporte'], null, ['class'=>'form-control']) !!}
+					   {!!Form::select('tipoDoc',['Seleccione su documento de identidad','Cedula'=>'Cedula','Tarjeta de identidad'=>'Tarjeta de identidad','Registro Civill'=>'Registro civil','Pasaporte'=>'Pasaporte'], null, ['class'=>'form-control']) !!}
 						 
 			</div>
 

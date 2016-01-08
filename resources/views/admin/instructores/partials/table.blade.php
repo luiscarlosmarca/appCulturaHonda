@@ -39,10 +39,7 @@
  										<img src="/images/app/edit.png" widht="50" height="50" alt="Editar"> 
  									</a>
 
- 									<a href="{{route('admin.instructores.show',$instructor)}}">
- 										
- 										<img src="/images/app/view.png" widht="50" height="50" alt="ver detalles">
- 									</a>
+ 									
  								</td>
  							</tr>
  								@endforeach
