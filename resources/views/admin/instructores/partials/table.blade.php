@@ -2,6 +2,13 @@
  							<tr>
  								
 
+ 								
+ 								<th>
+ 									<font color=#2D4259 size="4" face="Lucida grande"> <center>
+ 									#id
+ 								</th>
+
+ 							
  								<th>
  									<font color=#2D4259 size="4" face="Lucida grande"> <center>
  									#identificacion</th>
@@ -26,6 +33,7 @@
  							</tr>
  								@foreach ($instructores as $instructor)
  							<tr>
+ 								<td><center>{{$instructor->id}}</td>
  								<td><center>{{$instructor->numDoc}}</td>
  								<td><center>{{$instructor->full_name}}</td>
  								<td><center>{{$instructor->telefono}}</td>

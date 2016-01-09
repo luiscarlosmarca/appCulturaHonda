@@ -1,5 +1,6 @@
  <div class="col-xs-6">
 	<div class="form-group">
+		{!!Form::open(['route'=>'admin.matriculas.store', 'method' => 'POST']) !!} 
 			{!!Form::label('num_doc', 'Id del Aprendiz') !!}
 			{!!Form::text('id_aprendiz',null,['class'=>'form-control','placeholder' => 'Escriba el id del aprendiz','requiered']) !!}
 	 </div>

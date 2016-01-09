@@ -1,4 +1,4 @@
-@extends('app')
+		@extends('app')
 
 @section('content')
 <div class="container">
@@ -72,6 +72,7 @@
 						 			<td>
 						 				<center>
 						 			    {!!Form::text('aprendiz_id',null,['class'=>'form-controll','placeholder' => 'Escriba el id del aprendiz','requiered']) !!}
+						 			    {!!Form::text('curso_id',null,['class'=>'form-controll','placeholder' => 'Escriba el id del curso','requiered']) !!}
 
 						 			</td>
 					 	</tr>

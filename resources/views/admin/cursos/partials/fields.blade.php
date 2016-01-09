@@ -9,12 +9,12 @@
 			<div class="form-group">
 
 					 <label for="nombre">Nombre del curso</label>
-					 <input type="text" name="nombre"class="form-control" id="nombre" placeholder="Digite el nombre del curso">
+					{!!Form::text('nombre',null,['class'=>'form-controll','placeholder' => 'Escriba el nombre del curso','requiered']) !!}
 			 </div>
 
 	<div class="form-group">
 			 		{!!Form::label('horario', 'Horario') !!}
-					{!!Form::select('tema',config('horario.horario'), null, ['class'=>'form-controlll']) !!}
+					{!!Form::select('horario',config('horario.horario'), null, ['class'=>'form-controlll']) !!}
 	 </div>
 
 			<div class="form-group">	

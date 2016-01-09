@@ -17,9 +17,9 @@ Matriculas | Casa de la Cultura
 
 			<!--   Formulario para crear el jugador -->
 					
-						
+							
 						@include('admin.matriculas.partials.fields')
-		<button type="button" class="btn btn-info btn-lg btn-block">Matricular</button>
+		<button type="submit" class="btn btn-info btn-lg btn-block">Matricular</button>
 						   
 
 			{!!Form::close() !!} 	

@@ -24,14 +24,14 @@ class CreateMatriculasTable extends Migration {
 				  ->references('id')
 				  ->on('aprendices')
 				  ->onUpdate('CASCADE')
-				  ->onDelete('NO ACTION');
+				  ->onDelete('CASCADE');
 
 
 		    $table->foreign('curso_id')
 				  ->references('id')
 				  ->on('cursos')
 				  ->onUpdate('CASCADE')
-				  ->onDelete('NO ACTION');
+				  ->onDelete('CASCADE');
 		});
 	}
 

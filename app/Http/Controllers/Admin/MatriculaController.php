@@ -35,7 +35,13 @@ class MatriculaController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		dd($request);
+		
+
+		$matriculas= Matricula::create($request->all());
+		
+	
+	
+		return redirect()->back();
 
 	}
 

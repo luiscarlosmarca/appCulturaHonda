@@ -6,6 +6,7 @@ use cultura\Curso;
 use cultura\Matricula;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use cultura\Http\Requests\EditCursoRequest;
 
 class CursoController extends Controller {
 
@@ -71,7 +72,8 @@ class CursoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$cursos=Curso::findOrFail($id);
+		return view('admin.cursos.edit',compact('cursos'));
 	}
 
 	/**
@@ -80,9 +82,14 @@ class CursoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditCursoRequest $request,$id)
 	{
-		//
+		$cursos=Curso::findOrFail($id);
+		$cursos->fill($request->all());
+		$cursos->save();
+
+		Session::flash('message',$cursos->nombre.' Fue modificado');
+		return redirect()->route('admin.cursos.index');
 	}
 
 	/**
@@ -95,5 +102,18 @@ class CursoController extends Controller {
 	{
 		//
 	}
+
+
+
+	public function destroy($id)
+	{
+		$cursos = Curso::findOrFail($id);
+
+		$cursos->delete();
+
+		Session::flash('message',$cursos->full_name.' Fue eliminado');
+		return redirect()->route('admin.cursos.index');
+	}
+
 
 }

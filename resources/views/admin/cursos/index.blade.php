@@ -19,20 +19,22 @@
 							 @include('admin.cursos.partials.search')
 							 @include('admin.cursos.partials.table') 
 							</div>
+
+			Tenemos 
+	 			
+	 		{{$cursos->total()}} Cursos
 				</div>
 		
-
+	
+ 							
+ 	
+			
+ 				
 		</div>
 		
 
-		<p>
- 							
- 		<font color="white">
-		Tenemos 
- 			
- 		{{$cursos->total()}} Cursos
- 						
- 		</p>
+				
+ 		
 		
 	</div>
 	 
