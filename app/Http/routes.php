@@ -28,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','is_admin'], 'namespace' =
 	Route::resource('instructores','InstructorController');
 	Route::resource('cursos','CursoController');
 	Route::resource('detalles-cursos','CursoController@detail');
-	Route::resource('matriculas','MatriculaController');
+	Route::resource('matricular','MatricularController');
 	
 });
 
@@ -38,3 +38,5 @@ Route::get('login',function ()
 });
 
 Route::post('aprendiz/crear', 'Admin\AprendizController@store');
+
+Route::post('curso/matricular', 'Admin\CursoController@matricular');

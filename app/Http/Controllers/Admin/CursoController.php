@@ -98,12 +98,15 @@ class CursoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function detail($id)
+	public function matricular(Request $request)
 	{
-		//
+		$matriculas= Matricula::create($request->all());
+		
+	
+	
+		return redirect()->back();
+
 	}
-
-
 
 	public function destroy($id)
 	{
@@ -114,6 +117,8 @@ class CursoController extends Controller {
 		Session::flash('message',$cursos->full_name.' Fue eliminado');
 		return redirect()->route('admin.cursos.index');
 	}
+
+
 
 
 }

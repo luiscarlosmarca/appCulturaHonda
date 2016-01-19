@@ -7,7 +7,7 @@
 				<div class="panel panel-primary">
 					
 					<div class="panel-heading">
-       			 		<h3 class="panel-title">Listados de Matriculados del curso {{$cursos->nombre}} </h3>
+       			 		<h3 class="panel-title">Listados de Matriculados del curso {{$cursos->nombre}} #ID del curso:{{$cursos->id}} </h3>
       				</div>
 						
 
@@ -57,7 +57,7 @@
 
 
 						<tr>
-						 		{!!Form::open(['route'=>'admin.matriculas.store', 'method' => 'POST']) !!} 
+						 		{!!Form::open(['route'=>'admin.matricular.store', 'method' => 'POST']) !!} 
 						 			<td>
 										<center>
 										<h4>
